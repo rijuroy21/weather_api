@@ -1,75 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Report Widget</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background: url('rain-window-drop-glass.jpg') no-repeat center center fixed;
-      background-size: cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-    }
-
-    .weather-widget {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      width: 300px;
-      text-align: center;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-
-    .temperature {
-      font-size: 72px;
-      font-weight: bold;
-    }
-
-    .weather-status {
-      margin: 10px 0;
-      font-size: 18px;
-    }
-
-    .forecast {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .forecast span {
-      font-size: 16px;
-    }
-
-    .date {
-      font-size: 18px;
-    }
-
-    .location {
-      font-size: 24px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Weather Widget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            /* background-color: darkblue; */
+            background-image: url('pexels-hikaique-125510.jpg');
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .widget {
+            background: black;
+            color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            width: 700px;
+            margin: 0 auto;
+        }
+        .widget h1 {
+            font-size: 1.5rem;
+        }
+        .weather-icon {
+            font-size: 4rem;
+        }Animated Weather Widget
+        .forecast {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .forecast-item {
+            text-align: center;
+        }
+        .forecast-item .day {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .forecast-item .icon {
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+        .forecast-item .temp-range {
+            font-size: 0.8rem;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="weather-widget">
-    <div class="date">Friday<br>03 January 2025</div>
-    <div class="temperature">24°</div>
-    <div class="location">Las Vegas</div>
-    <div class="weather-status">Rain Falling</div>
-    <div class="forecast">
-      <span>☁️</span>
-      <span>☁️</span>
-      <span>☀️</span>
+    <h1>Weather</h1><br><br>
+    <div class="widget">
+        <h1>{{data.city}}</h1>
+        <h1>Monday Weather</h1>
+        <div class="weather-icon">☀</div>
+        <div class="temp">{{data.temperature_celsius}} °C</div>
+        <div>{{data.temp_min_celsius}} °C / {{data.temp_max_celsius}} °C</div>
+        <div class="forecast">
+            <div class="forecast-item">
+                <div class="day">Humidity</div>
+                <div class="icon">🌧</div>
+                <div class="temp-range">{{data.humidity}} %</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Wind</div>
+                <div class="icon">🌧</div>
+                <div class="temp-range">{{data.wind}} km/hr</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Cloud</div>
+                <div class="icon">☁</div>
+                <div class="temp-range">{{data.cloud}}</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Pressure</div>
+                <div class="icon">🌦</div>
+                <div class="temp-range">{{data.pressure}} Hg</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Feel Temperature</div>
+                <div class="icon">⛅</div>
+                <div class="temp-range">{{data.feel_temp}} °C</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Sea Level</div>
+                <div class="icon">🌙</div>
+                <div class="temp-range">{{data.sea_level}} km</div>
+            </div>
+            <div class="forecast-item">
+                <div class="day">Ground Level</div>
+                <div class="icon">☁</div>
+                <div class="temp-range">{{data.grnd_level}} km</div>
+            </div>
+        </div>
     </div>
-  </div>
+    <footer>
+    </footer>
 </body>
-
 </html>
